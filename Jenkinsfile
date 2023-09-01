@@ -2,9 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('test') {
+        stage('Pulling Repo files') {
             steps {
-                echo 'test'
+                git branch: "${GIT_BRANCH}", credentialsId: 'gitHup', url: 'https://github.com/HaythamMohamd/simple_nodejs_app.git'
+            }
+        }
+        stage('stage1') {
+            steps {
+                sh '''
+                    ls
+                    date
+                    
+                '''
             }
         }
         
